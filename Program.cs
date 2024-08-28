@@ -5,77 +5,46 @@ escolher uma pergunta aleatoria
 
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-string verificador;
+string verificador = "", respostaUsuario = "", pergunta = "", respostaCorreta = "";
 int questao;
 
 Random rand = new Random();
 
 questao = rand.Next(1, 5);
 
+void CriadorPergunta(string pergunta, string respostaUsuario, string respostaCorreta)
+{
+    Console.WriteLine(pergunta);
+    respostaUsuario = Console.ReadLine();
+    if(respostaUsuario.ToUpper() == respostaCorreta.ToUpper())
+    {
+        Console.WriteLine("Acertou");
+    }
+    else
+    {
+        Console.WriteLine("Errou!");
+    }
+}
+
 switch (questao)
     {
     case 1:
-        Console.WriteLine("Qual é a capital da frança ?");
-        verificador = Console.ReadLine();
-        if(verificador.ToUpper() == "PARIS")
-        {
-            Console.WriteLine("Acertou");
-        }
-        else
-        {
-            Console.WriteLine("Errou!");
-        }
+        CriadorPergunta("Qual é a capital da França:", "", "Paris");
         break;
     
     case 2:
-        Console.WriteLine("Qual é o quadrado de 7 ?");
-        verificador = Console.ReadLine();
-        if (verificador.ToUpper() == "49")
-        {
-            Console.WriteLine("Acertou");
-        }
-        else
-        {
-            Console.WriteLine("Errou!");
-        }
+        CriadorPergunta("Qual é o quadrado de 7 ?", "", "49");
         break;
-    
+        
     case 3:
-        Console.WriteLine("Qual o maior país do mundo?");
-        verificador = Console.ReadLine();
-        if (verificador.ToUpper() == "RUSSIA" || verificador.ToUpper() == "RÚSSIA")
-        {
-            Console.WriteLine("Acertou");
-        }
-        else
-        {
-            Console.WriteLine("Errou!");
-        }
+        CriadorPergunta("Qual é o maior pais do mundo?", "", "RÚSSIA");
         break;
-    
-    case 4:
-        Console.WriteLine("Buenos Aires é capital de qual pais ?");
-        verificador = Console.ReadLine();
-        if (verificador.ToUpper() == "ARGENTINA")
-        {
-            Console.WriteLine("Acertou");
-        }
-        else
-        {
-            Console.WriteLine("Errou!");
-        }
+
+    case 4: 
+        CriadorPergunta("Buenos Aires é a capital de qual país?", "", "ARGENTINA");
         break;
     
     case 5:
-        Console.WriteLine("Qual é a capital do Japão ?");
-        verificador = Console.ReadLine();
-        if (verificador.ToUpper() == "TOQUIO" || verificador.ToUpper() == "TÓQUIO")
-        {
-            Console.WriteLine("Acertou");
-        }
-        else
-        {
-            Console.WriteLine("Errou!");
-        }
+        CriadorPergunta("Qual é a capital do Japão?", "", "TÓQUIO");
         break;
 }
